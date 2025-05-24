@@ -1,20 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Grid,
-  Typography,
-  Button,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { TVChartContainer } from "./common/TVChartContainer";
 import Table from "./Table";
+import { useSelector } from "react-redux";
 import "./style.css";
+import TokenInfo from "./common/TokenInfo";
 
 const MainComponent = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const theme = useTheme();
-  const isLargeScreen = useMediaQuery(theme.breakpoints.up("md")); // Check if screen is larger than medium
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("md"));
+  
+  const selectedToken = useSelector(state => state.tokenReducer?.selectedToken);
+
+  useEffect(() => {
+    if (selectedToken) {
+      setIsMenuOpen(true);
+    }
+  }, [selectedToken]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -46,7 +53,15 @@ const MainComponent = () => {
       </Grid>
 
       {/* Menu or additional content */}
-      {isMenuOpen && <Grid item xs={3} className="font-header"></Grid>}
+      {isMenuOpen && (
+        <Grid 
+          item 
+          xs={3} 
+          className="font-header right-panel"
+        >
+          <TokenInfo selectedToken={selectedToken} />
+        </Grid>
+      )}
     </Grid>
   );
 };

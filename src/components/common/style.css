@@ -61,3 +61,100 @@
 .tokenlist .top-token {
   margin-right: 10px; /* Add spacing between tokens */
 }
+
+.token-element-rate {
+  margin-left: -5px;
+  font-size: small;
+}
+
+.token-info-panel {
+  padding: 20px;
+  color: white;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.token-info-empty {
+  padding: 20px;
+  color: #666;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.token-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.token-info-title {
+  margin: 0;
+}
+
+.token-info-close-button {
+  color: white;
+}
+
+.token-info-logo-section {
+  margin-bottom: 25px;
+}
+
+.token-info-logo {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.token-info-name {
+  margin: 10px 0;
+}
+
+.token-info-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.token-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding-bottom: 8px;
+}
+
+.token-info-label {
+  color: #999;
+  font-size: 14px;
+}
+
+.token-info-value {
+  font-size: 16px;
+}
+
+.token-info-value-positive {
+  color: #449782;
+}
+
+.token-info-contract {
+  margin-top: 30px;
+}
+
+.token-info-contract-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.token-info-contract-address {
+  font-size: 14px;
+  word-break: break-all;
+  font-family: monospace;
+}
+
+.right-panel {
+  background-color: black;
+  border-left: 1px solid #333;
+  height: 100vh;
+  overflow-y: auto;
+}

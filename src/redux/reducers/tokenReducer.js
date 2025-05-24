@@ -2,12 +2,15 @@ import {
   FETCH_TOKEN_LIST_REQUEST,
   FETCH_TOKEN_LIST_SUCCESS,
   FETCH_TOKEN_LIST_FAIL,
-} from '../actions/tokenAction';
+  SELECT_TOKEN,
+  CLEAR_SELECTED_TOKEN,
+} from "../actions/tokenAction";
 
 const initialState = {
   loading: false,
   tokenList: [],
   error: null,
+  selectedToken: null,
 };
 
 const tokenReducer = (state = initialState, action) => {
@@ -29,6 +32,16 @@ const tokenReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+    case SELECT_TOKEN:
+      return {
+        ...state,
+        selectedToken: action.payload,
+      };
+    case CLEAR_SELECTED_TOKEN:
+      return {
+        ...state,
+        selectedToken: null,
       };
     default:
       return state;

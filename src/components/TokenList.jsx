@@ -71,6 +71,11 @@ const TokenList = () => {
     setIsEditing(true);
   };
 
+  const handleTokenSelect = () => {
+    setIsEditing(false);
+    setText("Select Token/Contract Address ⌄");
+  };
+
   const handleInputChange = (e) => {
     setFilteredTokenList(
       [...tokenList].filter((obj) => {
@@ -154,7 +159,10 @@ const TokenList = () => {
             }}
           >
             {/* Add your div content here */}
-            <TokenTable tokenData={filteredTokenList} />
+            <TokenTable 
+              tokenData={filteredTokenList}
+              onTokenSelect={handleTokenSelect}
+            />
           </div>
         )}
       </div>

@@ -1,12 +1,23 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { selectToken } from "../../redux/actions/tokenAction";
 import { checkImg, formatNumber } from "../../utils/funcs";
 import { svg2img } from "../../utils/randomAvatar";
-import { green } from "@mui/material/colors";
 import { removeW } from "../../utils/funcs";
-import "./style.css";
+import "../style.css";
 
-const TokenRow = ({ data }) => {
+
+const TokenRow = ({ data, onTokenSelect }) => {
+
   const [imageExists, setImageExists] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(selectToken(data));
+    if (onTokenSelect) {
+      onTokenSelect();
+    }
+  };
 
   // useEffect(() => {
   //   checkImg(
@@ -22,7 +33,7 @@ const TokenRow = ({ data }) => {
   // }, [data.symbol]);
 
   return (
-    <tr>
+    <tr onClick={handleClick}>
       <td
         style={{
           display: "flex",
